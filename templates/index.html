@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Make it compatible to mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Predicting Individual Income</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 320px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+
+</head>
+<!-- <script>
+    function validateForm() {
+        let age = document.forms["attributes"]["age"].value;
+        if (isNaN(age) == true) {
+            alert("age must be a number");
+            return false;
+        }
+        let workclass = document.forms["attributes"]["workclass"].value;
+        let workclass_set = new Set(["Private", "Self-emp-not-inc", "Self-emp-inc", "Federal-gov", "Local-gov", "State-gov", "Without-pay", "Never-worked"])
+        if (workclass_set.has(workclass) == false) {
+            alert("workclass invalid");
+            return false;
+        }
+        let fnlwgt = document.forms["attributes"]["fnlwgt"].value;
+        if (isNaN(fnlwgt) == true) {
+            alert("fnlwgt must be a number");
+            return false;
+        }
+    }
+</script> -->
+<div class="login">
+    <h1>Predicting Heart Attack</h1>
+
+    <!-- Action is where the data is sent. In our case, predict page.
+    If action is omitted, it assumed to be the current page -->
+    <form name="attributes" action="{{ url_for('predict')}}" onsubmit="return validateForm()" method="post">
+        <input type="text" name="age" placeholder="age" required="required" /><br>
+        <input type="text" name="sex" placeholder="sex" required="required" /><br>
+        <input type="text" name="cp" placeholder="cp" required="required" /><br>
+        <input type="text" name="trtbps" placeholder="trtbps" required="required" /><br>
+        <input type="text" name="chol" placeholder="chol" required="required" /><br>
+        <input type="text" name="fbs" placeholder="fbs" required="required" /><br>
+        <input type="text" name="restecg" placeholder="restecg" required="required" /><br>
+        <input type="text" name="thalachh" placeholder="thalachh" required="required" /><br>
+        <input type="text" name="exng" placeholder="exng" required="required" /><br>
+        <input type="text" name="oldpeak" placeholder="oldpeak" required="required" /><br>
+        <input type="text" name="slp" placeholder="slp" required="required" /><br>
+        <input type="text" name="caa" placeholder="caa" required="required" /><br>
+        <input type="text" name="thall" placeholder="thall" required="required" /><br>
+        <p>
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict heart attack</button>
+        </p>
+    </form>
+
+</div>
+
+
+</html>
